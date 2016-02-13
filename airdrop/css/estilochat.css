@@ -1,0 +1,363 @@
+*{
+	margin:0;
+	padding:0;
+}
+
+a{
+	text-decoration:none;
+}
+ul{
+	list-style:none;
+}
+body{
+	background:#f4f4f4;
+}
+#cabecalho{
+	padding-top:25px;
+	background:#7C2DBD;
+	width:100%;
+	margin:0;
+	height:180px;
+}
+#head{
+	
+	width:980px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:
+}
+div#base{
+	width:1000px;
+	background:#FFF;
+	height:600px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:-110px;
+	border-radius:7px;
+	clear:both;
+	box-shadow:1px 1px 15px #000;
+	margin-bottom:15px;
+	
+}
+.header{
+	background:#0072C6;
+	padding:20px 5px;
+	margin-bottom:2px;
+	min-height:30px;
+	height:30px;
+}
+header#contato{
+	border-top-right-radius:7px;
+	border-left:1px solid #004375;
+}
+#infoUser{
+	width:100%;
+	border-top-left-radius:7px;
+	
+}
+#infoUser>.avatar{
+	margin-top:-10px;
+}
+
+.menu{
+	position:absolute;
+	margin-left:250px;
+	width:25px;
+	height:25px;
+	margin-right:10px;
+	background:url(../img/mais.png) center center no-repeat; 
+}
+.menu>ul{
+	background:#FFF;
+	display:none;
+	left:-130px;
+	position:absolute;
+	padding-bottom:10px;
+	margin-top:43px;
+	border-radius:4px;
+	box-shadow:1px 1px 10px #000;
+	
+}
+.menu>ul li {
+	padding:5px 10px;
+	margin:1px;
+	width:130px;
+
+}
+.menu>ul li:hover{
+	background:#F3F3F3;
+}
+.menu>ul li a{
+	text-decoration:none;
+	font:14px 'Kalinga', sans-serif;
+	color:#000;
+}
+.conteiner{
+	width:70%;
+}
+.nomeUser{
+	
+	color:#FFF;
+	font:18px 'kalinga',sans-serif;
+	
+}
+.status{
+	font-size:11px;
+	margin-top:-8px;
+	
+}
+
+.butaoEviarAnexo{
+	widows:45px;
+	height:45px;
+	padding:0 7px;	
+	background:none;
+	outline:none;
+	border:0;
+	float:right;
+	margin-top:-45px;
+	margin-right:50px;
+	
+	
+}
+.butaoEviarAnexo:hover{
+	cursor:pointer;
+	background:#004891;
+
+}
+.butaoEviarAnexo .botaoAnexar{
+	padding:15px;
+	
+	background:url(../img/anexar.png) center no-repeat;
+}
+.uploadFile{
+	
+	visibility:hidden;
+}
+
+#barraL{
+	width:34%;
+	height:494px;
+	
+}
+#barraL form input[type=search]{
+	height:34px;
+	margin-left:2px;
+	width:345px;
+	font-size:16px;
+	font-family:'Kalinga';
+	
+}
+
+div#contatos{
+	width:350px;
+	background:#fff;
+	height:96%;
+	overflow-y:auto;
+	overflow-x:hidden;
+	border-bottom-left-radius:7px;
+	
+}
+
+div#contatos>ul{
+	margin:0;
+	width:100%;
+	
+}
+div#contatos>ul>li{
+	float:left;
+	display:block;
+	width:100%;
+	border-bottom:1px solid #ccc;
+	margin-bottom:1px;
+	padding:5px 5px 5px;
+	
+}
+div#contatos>ul>li a .naolido{
+	display:none;
+	padding:2px 5px;
+	float:right;
+	margin-top:-9px;
+	margin-right:70px;
+	text-align:center;
+	background:#0072C6;
+	color:#fff;
+	font-size:8px;
+}
+div#contatos>ul>li>a{
+	text-decoration:none;
+	color:#000;
+	display:block;
+	font-size:18px;
+	font-family: 'Kalinga';
+	padding:5px 0;
+	font-weight:595;
+		
+}
+div#contatos ul li:hover{
+	background:#F3F3F3;
+}
+.avatar{
+	
+	width:50px;
+	height:50px;
+	margin-right:5px;
+	float:left;
+	margin-top:-8px;
+	overflow:hidden;
+	border-radius:25px;	
+	
+}
+.avatar img{
+	width:50px;
+	height:50px;
+}
+
+#window{
+	background:#F3F3F3;
+	height:100%;
+	float:right;
+	width:65%;
+	border-top-right-radius:7px;
+	
+	
+}
+.mensagens{
+	width:90%;
+	margin-left:auto;
+	margin-right:auto;
+	height:474px;
+	padding:2px 5px;
+	overflow-y:auto;
+	overflow-x:hidden;
+	padding:0 30px;
+	
+	
+}
+#entrada{
+	width:100%;
+	padding:10px 0;
+	background:#0072C6;
+}
+#entrada .msg{
+	width:494px;
+	height:34px;
+	display:block;
+	margin-left:auto;
+	margin-right:auto;
+	border-radius:3px;
+	outline:none;
+	border:0;
+	padding:0 3px;
+	font:16px 'Kalinga', sans-serif;
+}
+
+
+/*janela bate papo*/
+
+
+#window>.mensagens ul.listar li{
+	padding:6px 0;
+	font:16px  'Kalinga',Verdana, Geneva, sans-serif ;
+}
+
+#window>.mensagens ul.listar li .boxmsg{
+	background:#E2E2E2;
+	padding:6px 5px;
+	margin-right:2px;
+	border-radius:4px;
+	text-align:left;
+	display:inline-block;
+	max-width:400px;
+}
+#window>.mensagens ul.listar li .boxmsg span{
+	line-height:1.28;
+	word-wrap: break-word;
+	display:inline;
+		
+
+}
+#window>.mensagens ul.listar li.right .boxmsg span{
+	white-space: pre-wrap;
+}
+#window>.mensagens ul.listar li.right{
+	text-align:right;
+	
+	
+}
+#window>.mensagens ul.listar li.right .boxmsg{
+	background:#0072C6;
+	direction:ltr;
+	color:#FFF;
+	
+	
+	
+}
+#window>.mensagens ul.listar li.right .boxmsg a{
+	color:#FFF;
+}
+/*barras de rolagem*/
+.mensagens::-webkit-scrollbar{
+	background-color:rgba(255,255,255,0);
+	width:5px;
+}
+.mensagens::-webkit-scrollbar-track{
+}
+.mensagens::-webkit-scrollbar-thumb {
+  position:absolute;
+  border:none;
+  background-color: #05AADA;
+  width:2px;
+  outline: none;
+  border-radius:100px;
+}
+/*///*/
+.progress{
+	border:1px solid #FFF;
+	height:5px;
+	border-radius:10px;
+	overflow:hidden;
+}
+.load{
+	width:0%;
+	height:5px;
+	background:#51B5FF;
+}
+.mini {
+	display:inline-block;
+	margin-right:2px;
+
+}
+.iconvideo{
+	width:21px;
+	height:14px;
+	background:url(../img/icones.png) no-repeat -1px -1px;
+	
+}
+.iconaudio{
+	width:20px;
+	height:18px;
+	background:url(../img/icones.png) no-repeat -37px -5px;
+}
+.iconword{
+	width:22px;
+	height:21px;
+	background:url(../img/icones.png) no-repeat -68px -2px;
+
+}
+.iconexcel{
+	width:22px;
+	height:21px;
+	background:url(../img/icones.png) no-repeat -93px -2px;
+
+}
+.iconpp{
+	width:22px;
+	height:21px;
+	background:url(../img/icones.png) no-repeat -118px -2px;
+}
+.iconpdf{
+	width:20px;
+	height:28px;
+	background:url(../img/icones.png) no-repeat -149px -1px;
+}

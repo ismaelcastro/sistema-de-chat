@@ -1,0 +1,150 @@
+@charset "utf-8";
+/* CSS Document */
+*{
+	margin:0;
+	padding:0;
+}body{
+	background:#D7DBD8;
+}
+header{
+	padding-top:25px;
+	background:#7C2DBD;
+	width:100%;
+	margin:0;
+	height:180px;
+}
+#head{
+	
+	width:980px;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:
+}
+
+
+div#base{
+	width:980px;
+	background:#FFF;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top:-110px;
+	border-radius:7px;
+	clear:both;
+	box-shadow:1px 1px 15px #000;
+	margin-bottom:15px;
+	
+}
+div#formulario{
+	padding:20px 66px;
+	border-radius:7px;
+}
+div#formulario ul{
+	text-align:center;
+	list-style:none;
+	
+	
+}
+div#formulario ul li{
+	text-align:left;
+	width:50%;
+	float:right;
+	margin-bottom:40px;
+	
+	
+}
+
+div#formulario ul li h1{
+	font: 36px "open_sansregular", Arial, Tahoma;
+	color:#555555;
+	font-weight:bold;
+	margin-bottom:40px;
+}
+div#formulario span{
+	font: 18px'Kalinga', Arial, Tahoma;
+	color:#545454;
+	width:100%;
+	margin-bottom:10px;
+}
+div#formulario .campo{
+	padding:5px;
+	width:385px;
+	border:1px solid #ccc;
+	outline:none;
+	font:16px Tahoma, Geneva, sans-serif;
+	color:#666;
+	background:#E6E8E7;
+	border:1px solid #748177;
+	margin-top:5px;
+}
+div#formulario input[type=text]:focus{
+	border-color:#036;
+}
+div#formulario input[type=submit]{
+	padding:8px 6px;
+	background:#7C2DBD;
+	font:17px Tahoma, Geneva, sans-serif;
+	color:#FFF;
+	border:0;
+	text-align:center;
+	width:95px;
+	text-shadow:#000 0 1px 0;
+	margin-top:10px;
+	margin-right:10px;
+}
+div#formulario input[type=submit]:hover{
+	cursor:pointer;
+	background:#A05BD9;
+}
+.sobre{
+	background:#F3F3F3;
+	clear:both;
+	margin-top:30px;
+	padding:10px 66px 0;
+	border-bottom-left-radius:7px;
+	border-bottom-right-radius:7px;
+}
+.sobre>h1#logo{
+	width:300px;
+	height:60px;
+	background:url(../img/logo_airdrop.png) no-repeat;
+}
+.sobre>p{
+	padding-top:10px;
+	font:17px 'Kalinga',Arial, Tahoma;
+	text-align:justify;
+	color:#738077;
+	
+
+}
+.sobre ul {
+	margin-top:30px;
+	list-style:none;
+	
+}
+.sobre ul li img{
+	float:left;
+	margin-right:20px;
+}
+.sobre ul li{
+	
+	display:inline-table;
+	width:49%;
+	
+}
+.sobre ul li span{
+	color:#000;
+	font:20px 'Kalinga',Arial, Tahoma;
+}
+.sobre ul li p{
+	color:#727F77;
+	font:14px 'Kalinga',Arial, Tahoma;
+	width:380px;
+	height:156px;
+	margin-left:30px;
+}
+#head>h1#logo{
+	width:300px;
+	height:60px;
+	margin:0 auto;
+	background:url(../img/airdrop.png) no-repeat;
+}
