@@ -72,11 +72,11 @@
         
         </header>
        
-        	<form>
-            	<input type="search" placeholder="Procurar contatos"><img>
-            </form>
+        	<input type="search" placeholder="Procurar contatos">
+            
 			<div id="contatos" class="contatos">
-    			
+    	  	 
+
         		<ul>
        		 	<?php
 					$Select_usuarios = $con->prepare('SELECT * FROM usuarios WHERE id != ?');
@@ -89,8 +89,9 @@
 						$id = $usuario->id;
 						$id =ltrim($id," ");
 				?>
+                <?php for($i=0; $i <10 ; $i++){ ?>
 					<li><a href="javascript:void(0);" nome="<?php echo $usuario->nome; ?>" id="<?php echo $id; ?>" class="comecar"><span class="naolido"></span> <span class="avatar"><img src="<?php echo $usuario->avatar; ?>"></span><?php echo $usuario->nome; ?> </a>  </li>
-                   
+                <?php }?>   
 			<?php }} ?>   
       	</ul>
 		
