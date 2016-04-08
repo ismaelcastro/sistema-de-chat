@@ -5,7 +5,7 @@ $(document).ready(function(){
 	function add_janelas(id, nome, avatar){
 		
 		var html_add =
-		'<header class="header themeAzul" id="contato"> <span class="avatar"><img id="fotoUser" src="'+avatar+'"></span><div class="conteiner"><h1 class="nomeUser">'+nome+'<p class="status"></p></h1></div> <button id="mytrigger" class="butaoEviarAnexo"><span class="botaoAnexar"></span></button><form id="formupload" method="post" enctype="multipart/form-data" action="sys/upload.php"><input  type="file" id="'+id+'" name="arquivo" class="uploadFile" multiple></form></span></header><div id="jan_'+id+'" class="mensagens"><ul class="listar"></ul></div><div id="entrada"><input type="text" class="msg" id="'+id+'"></div>'
+		'<header class="header themeAzul" id="contato"> <span class="avatar"><img id="fotoUser" src="'+avatar+'"></span><div class="conteiner"><h1 class="nomeUser">'+nome+'<p class="status"></p></h1></div> <button id="mytrigger" class="butaoEviarAnexo"><span class="botaoAnexar"></span></button><form id="formupload" method="post" enctype="multipart/form-data" action="sys/upload.php"><input  type="file" id="'+id+'" name="arquivo" class="uploadFile" multiple></form></span></header><div id="jan_'+id+'" class="mensagens"><ul class="listar"></ul></div><div id="entrada"><span class="enviarmsg"><span class="figura_btn_enviar"> </span></span><input type="text" placeholder="Digite aqui sua mensagem e pressione enter para enviar" class="msg" id="'+id+'"></div>'
 		;
 		
 		
@@ -29,51 +29,57 @@ $(document).ready(function(){
 				$.each(retorno,function(i, msg){
 					if( $('#jan_'+msg.janela_de).length > 0 ){
 						if(msg.mensagem == ""){
-							var tipo = msg.tipo.split("/");
-							switch(tipo[0]){
-								case 'image':
-									
-								elementos =	'<a class="downloadanex" href="'+msg.nome+'"><img width="320" heigth ="240" src="'+msg.caminho+'"></a>';									
-								break;
+							var tipo = msg.tipo;
+							if(msg.tipo == 'image'){
+								elementos =	'<a class="downloadanex" href="'+msg.nome+'"><img width="320" heigth ="240" src="'+msg.caminho+'"></a>';	
+							}else{
+							switch(tipo){				
+												
 								case 'video':
-								elementos = '<a class="downloadanex" href="/downloads.php?arquivo='+msg.nome+'"><div class="mini iconvideo"></div>'+msg.nome+'</a>';
+									var nomeArquivo = msg.nome;
+									var classe		= 'mini iconvideo';
 								break;
+								
+								
 								case 'audio':
-								elementos= '<a class="downloadanex" href="'+msg.nome+'"><div class="mini iconaudio"></div>'+msg.nome+'</a>';
+									var nomeArquivo = msg.nome;
+									var classe		= 'mini iconaudio';
+															
+									break;
+								case 'pdf':
+									var nomeArquivo = msg.nome;
+									var classe		= 'mini iconpdf';											
+									break;
+								case 'doc':
+									var nomeArquivo = msg.nome;
+									var classe		= 'mini iconword';
+									break;
+								case 'docx':
+									var nomeArquivo = msg.nome;
+									var classe		= 'mini iconword';		
+
+									break;
+								case 'xlsx':
+									var nomeArquivo = msg.nome;
+									var classe		= 'mini iconexcel';
+								
+									break;
+								case 'pptx':
+									var nomeArquivo = msg.nome;
+									var classe		= 'mini iconpp';
+								
+									break;
 									
-								break;
-								case 'application':
-									switch(msg.tipo){
-										case 'application/msword':
-											
-										elementos='<a class="downloadanex" href="'+msg.nome+'"><div class="mini iconword"></div>'+msg.nome+'</a>';
-											
-										break;
-										case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
-										elementos='<a class="downloadanex" href="'+msg.nome+'"><div class="mini iconexcel"></div>'+msg.nome+'</a>';
-											
-										break;
-										case 'application/vnd.ms-powerpoint':
-										elementos='<a class="downloadanex" href="'+msg.nome+'"><div class="mini iconpp"></div>'+msg.nome+'</a>';
-											
-										break;
-										case 'application/pdf':
-										elementos='<a class="downloadanex" href="'+msg.nome+'"><div class="mini iconpdf"></div>'+msg.nome+'</a>';
-											
-										break;
-										default:
-										
-										break;
-																				
-									}
-							
-								break;
 								case 'text':
-								elementos='<a class="downloadanex" href="'+msg.nome+'"><div class="mini icontxt"></div>'+msg.nome+'</a>';
+									var nomeArquivo = msg.nome;
+									var classe		= 'mini icontxt';
+								
 								break;
+								
 								default:
 								break;
 							};
+					var elementos='<a class="downloadanex" href="'+nomeArquivo+'"><div class="'+classe+'"></div>'+nomeArquivo+'</a>';}
 						
 							if(de == msg.id_de){
 								$("#jan_"+msg.janela_de+' ul.listar').append('<li id="'+msg.id+'" class="right"><div class="boxmsg"> <span>'+elementos+'</span> </div></li>');
@@ -129,80 +135,83 @@ $(document).ready(function(){
 							$.each(retorno.dados, function(i, msg){
 								if( $('#jan_'+msg.janela_de).length > 0 && $('.mensagens .listar #'+msg.id).length == 0 ){
 									if(msg.mensagem == ""){
-										var tipo = msg.tipo.split("/");
-							switch(tipo[0]){
-								case 'image':
-									if(de == msg.id_de){
-										$("#jan_"+msg.janela_de+' ul.listar').append('<li id="'+msg.id+'" class="right"><div class="boxmsg"><span><a class="downloadanex" href="'+msg.nome+'"><img width="320" heigth ="240" src="'+msg.caminho+'"></a></span></div></li>');
-									}else{
-									$("#jan_"+msg.janela_de+' ul.listar').append('<li id="'+msg.id+'" ><div class="boxmsg"><span><a class="downloadanex" href="'+msg.nome+'"><img width="320" heigth ="240" src="'+msg.caminho+'"></a></span></div></li>');
-									}
-								break;
+										var tipo = msg.tipo;
+							if(msg.tipo == 'image'){
+								elementos =	'<a class="downloadanex" href="'+msg.nome+'"><img width="320" heigth ="240" src="'+msg.caminho+'"></a>';	
+							}else{
+							switch(tipo){				
+												
 								case 'video':
-									if(de == msg.id_de){
-										$("#jan_"+msg.janela_de+' ul.listar').append('<li id="'+msg.id+'" class="right"><div class="boxmsg"><span><a  href="sys/downloads.php?arquivo='+msg.nome+'"><div class="mini iconvideo"></div>'+msg.nome+'</a></span></div></li>');
-									}else{
-									$("#jan_"+msg.janela_de+' ul.listar').append('<li id="'+msg.id+'"><div class="boxmsg"><span><a href="sys/downloads.php?arquivo='+msg.nome+'"><div class="mini iconvideo"></div>'+msg.nome+'</a></span></div></li>');
-									}
+									var nomeArquivo = msg.nome;
+									var classe		= 'mini iconvideo';
 								break;
+								
+								
 								case 'audio':
-									if(de == msg.id_de){
-										$("#jan_"+msg.janela_de+' ul.listar').append('<li id="'+msg.id+'" class="right"><div class="boxmsg"><span><a href=""><div class="mini iconaudio"></div>'+msg.nome+'</a></span></div></li>');
-									}else{
-									$("#jan_"+msg.janela_de+' ul.listar').append('<li id="'+msg.id+'" ><div class="boxmsg"><span><a href=""><div class="mini iconaudio"></div>'+msg.nome+'</a></span></div></li>');
-									}
-								break;
-								case 'application':
-									switch(msg.tipo){
-										case 'application/msword':
-											if(de == msg.id_de){
-												$("#jan_"+msg.janela_de+' ul.listar').append('<li id="'+msg.id+'" class="right"><div class="boxmsg"><span><a href=""><div class="mini iconword"></div>'+msg.nome+'</a></span></div></li>');
-											}else{
-												$("#jan_"+msg.janela_de+' ul.listar').append('<li id="'+msg.id+'" ><div class="boxmsg"><span><a href=""><div class="mini iconword"></div>'+msg.nome+'</a></span></div></li>');
-											}
-										break;
-										case 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet':
-											if(de == msg.id_de){
-												$("#jan_"+msg.janela_de+' ul.listar').append('<li id="'+msg.id+'" class="right"><div class="boxmsg"><span><a href=""><div class="mini iconexcel"></div>'+msg.nome+'</a></span></div></li>');
-											}else{
-												$("#jan_"+msg.janela_de+' ul.listar').append('<li id="'+msg.id+'" ><div class="boxmsg"><span><a href=""><div class="mini iconexcel"></div>'+msg.nome+'</a></span></div></li>');
-											}
-										break;
-										case 'application/vnd.ms-powerpoint':
-											if(de == msg.id_de){
-												$("#jan_"+msg.janela_de+' ul.listar').append('<li id="'+msg.id+'" class="right"><div class="boxmsg"><span><a href=""><div class="mini iconpp"></div>'+msg.nome+'</a></span></div></li>');
-											}else{
-												$("#jan_"+msg.janela_de+' ul.listar').append('<li id="'+msg.id+'" ><div class="boxmsg"><span><a href=""><div class="mini iconpp"></div>'+msg.nome+'</a></span></div></li>');
-											}
-										break;
-										case 'application/pdf':
-											if(de == msg.id_de){
-												$("#jan_"+msg.janela_de+' ul.listar').append('<li id="'+msg.id+'" class="right"><div class="boxmsg"><span><a href=""><div class="mini iconpdf"></div>'+msg.nome+'</a></span></div></li>');
-											}else{
-												$("#jan_"+msg.janela_de+' ul.listar').append('<li id="'+msg.id+'" ><div class="boxmsg"><span><a href=""><div class="mini iconpdf"></div>'+msg.nome+'</a></span></div></li>');
-											}
-										break;
-										default:
-										
-										break;
-																				
-									}
-							
-								break;
+									var nomeArquivo = msg.nome;
+									var classe		= 'mini iconaudio';
+															
+									break;
+								case 'pdf':
+									var nomeArquivo = msg.nome;
+									var classe		= 'mini iconpdf';											
+									break;
+								case 'doc':
+									var nomeArquivo = msg.nome;
+									var classe		= 'mini iconword';
+									break;
+								case 'docx':
+									var nomeArquivo = msg.nome;
+									var classe		= 'mini iconword';		
+
+									break;
+								case 'xlsx':
+									var nomeArquivo = msg.nome;
+									var classe		= 'mini iconexcel';
+								
+									break;
+								case 'pptx':
+									var nomeArquivo = msg.nome;
+									var classe		= 'mini iconpp';
+								
+									break;
+									
 								case 'text':
+									var nomeArquivo = msg.nome;
+									var classe		= 'mini icontxt';
+								
 								break;
+								
 								default:
 								break;
 							};
-									}else{
-										if(de == msg.id_de){
-											$("#jan_"+msg.janela_de+' ul.listar').append('<li id="'+msg.id+'" class="right"><div class="boxmsg"><span>'+msg.mensagem+'</span></div></li>');
-										}else{
-											$("#jan_"+msg.janela_de+' ul.listar').append('<li id="'+msg.id+'" ><div class="boxmsg"><span>'+msg.mensagem+'</span></div></li>');
-										}
+								var elementos='<a class="downloadanex" href="'+nomeArquivo+'"><div class="'+classe+'"></div>'+nomeArquivo+'</a>';}
+										
+											if(de == msg.id_de)
+											{
+												$("#jan_"+msg.janela_de+' ul.listar').append('<li id="'+msg.id+'" class="right"><div class="boxmsg"><div><span>'+elementos+'</span></div></li>');
+											}
+											else
+											
+											{
+												$("#jan_"+msg.janela_de+' ul.listar').append('<li id="'+msg.id+'" ><div class="boxmsg"><span>'+elementos+'</span></div></li>');
+													
+											};
+							
+							
+								}else
+								{
+									if(de == msg.id_de)
+									{
+										$("#jan_"+msg.janela_de+' ul.listar').append('<li id="'+msg.id+'" class="right"><div class="boxmsg"><span>'+msg.mensagem+'</span></div></li>');
 									}
-									var altura = $('.mensagens').height();
-									$('.mensagens').animate({scrollTop:altura},{duration:1000},{easing:'easeOutQuad'});
+									else
+									{
+										$("#jan_"+msg.janela_de+' ul.listar').append('<li id="'+msg.id+'" ><div class="boxmsg"><span>'+msg.mensagem+'</span></div></li>');
+									}
+								}
+								var altura = $('.mensagens').height();
+								$('.mensagens').animate({scrollTop:altura},{duration:1000},{easing:'easeOutQuad'});
 								}
 							});
 						}
@@ -318,11 +327,6 @@ $(document).ready(function(){
 		});
 	
 
-	$("#sair").click(function(){
-		$.post("logout.php",{
-			acao:'sair',
-			
-		});
-	});
+	
 	
 });
